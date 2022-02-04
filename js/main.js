@@ -1,4 +1,43 @@
 $(function() {
+	/* Contact Tabs */
+	const buttons = document.querySelectorAll('.contact-tabs__item');
+	const destruction = () => {
+		for(button of buttons) {
+			button.classList.remove('active');
+		}
+	}
+
+	buttons.forEach((button) => {
+		button.addEventListener('click', (e) => {
+			e.preventDefault();
+			destruction();
+			button.classList.add('active');		
+		});
+	});
+
+	/* FAQ Animation */
+	const faqSection = document.querySelector('.faq')
+	const faqContainer = faqSection.children;
+	$(window).scroll(function() {
+		$(faqContainer).each(function() {
+			var imagePos = $(this).offset().top;
+
+			var topOfWindow = $(window).scrollTop();
+			if (imagePos < topOfWindow + 600) {
+				$(this).addClass('animate__animated animate__zoomIn');
+			}
+		});
+
+		$('.kickstart').each(function() {
+			var imagePos = $(this).offset().top;
+
+			var topOfWindow = $(window).scrollTop();
+			if (imagePos < topOfWindow + 500) {
+				$(this).addClass('animate__animated animate__zoomIn');
+			}
+		});
+	});
+
 	/* FAQ Accordion */
 	const questions = document.querySelectorAll(".question__item");
 	const images = document.querySelectorAll(".question__img");
@@ -11,14 +50,6 @@ $(function() {
 		    } else {
 		    	question.querySelector('img').src = 'img/plus.svg';
 		    }
-		});
-	});
-
-	/* Contact Tabs */
-	const buttons = document.querySelectorAll('.contact-tabs__item');
-	buttons.forEach((button) => {
-		button.addEventListener('click', (e) => {
-			e.preventDefault();
 		});
 	});
 
@@ -61,5 +92,4 @@ $(function() {
 			}
 		]
 	});
-
 });
