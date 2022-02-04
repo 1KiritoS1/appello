@@ -798,6 +798,12 @@ span {
 	margin-right: 0;
 }
 
+/* --- Animation --- */
+.header
+.container {
+	animation-duration: 1.5s;
+}
+
 /* --- Media --- */
 @media screen and (max-width: 1200px) {
 	.container {
